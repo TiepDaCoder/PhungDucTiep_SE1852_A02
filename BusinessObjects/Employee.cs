@@ -1,0 +1,22 @@
+﻿namespace BusinessObjects;
+
+public partial class Employee
+{
+    public int EmployeeID { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public string UserName { get; set; } = null!;
+
+    public string? Password { get; set; }
+
+    public string? JobTitle { get; set; }
+
+    public DateTime? BirthDate { get; set; }
+
+    public DateTime? HireDate { get; set; }
+
+    public string? Address { get; set; }
+
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+}

@@ -1,0 +1,64 @@
+﻿<Window x:Class="PhungDucTiepWPF.Views.EmployeeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit Employee Info" Height="500" Width="400"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Employee Details" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Name -->
+                <RowDefinition Height="Auto"/>
+                <!-- UserName -->
+                <RowDefinition Height="Auto"/>
+                <!-- Password -->
+                <RowDefinition Height="Auto"/>
+                <!-- JobTitle -->
+                <RowDefinition Height="Auto"/>
+                <!-- BirthDate -->
+                <RowDefinition Height="Auto"/>
+                <!-- HireDate -->
+                <RowDefinition Height="Auto"/>
+                <!-- Address -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" Margin="0,5"/>
+            <TextBox Text="{Binding Employee.Name}" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Username:" Grid.Row="1" Grid.Column="0" Margin="0,5"/>
+            <TextBox Text="{Binding Employee.UserName}" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Password:" Grid.Row="2" Grid.Column="0" Margin="0,5"/>
+            <TextBox Text="{Binding Employee.Password}" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Job Title:" Grid.Row="3" Grid.Column="0" Margin="0,5"/>
+            <TextBox Text="{Binding Employee.JobTitle}" Grid.Row="3" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Birth Date:" Grid.Row="4" Grid.Column="0" Margin="0,5"/>
+            <DatePicker SelectedDate="{Binding Employee.BirthDate}" Grid.Row="4" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Hire Date:" Grid.Row="5" Grid.Column="0" Margin="0,5"/>
+            <DatePicker SelectedDate="{Binding Employee.HireDate}" Grid.Row="5" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Address:" Grid.Row="6" Grid.Column="0" Margin="0,5"/>
+            <TextBox Text="{Binding Employee.Address}" Grid.Row="6" Grid.Column="1" Margin="5"/>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Save" Width="80" Margin="5" IsDefault="True" Click="Save_Click"/>
+            <Button Content="Cancel" Width="80" Margin="5" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
