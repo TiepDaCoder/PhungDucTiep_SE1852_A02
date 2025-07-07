@@ -8,5 +8,6 @@ namespace Repositories.Interface
         List<OrderDetail> GetByOrderId(int orderId);
         void Add(OrderDetail detail);
         void DeleteDetailsByOrderId(int orderId);
+        void Update(OrderDetail detail);
     }
 }

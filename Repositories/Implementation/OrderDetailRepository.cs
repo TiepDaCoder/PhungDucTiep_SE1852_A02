@@ -23,5 +23,8 @@ namespace Repositories.Implementation
 
         public void DeleteDetailsByOrderId(int orderId) =>
             _orderDetailDAO.DeleteOrderDetailsByOrderId(orderId);
+
+        public void Update(OrderDetail detail) =>
+            _orderDetailDAO.UpdateOrderDetail(detail);
     }
 }

@@ -31,5 +31,7 @@ namespace Repositories.Implementation
         {
             return new OrderDAO().GetReportByPeriod(startDate, endDate);
         }
+
+        public void Update(Order order) => _orderDAO.UpdateOrder(order);
     }
 }

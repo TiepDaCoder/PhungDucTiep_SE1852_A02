@@ -36,11 +36,19 @@ namespace DataAccessLayer
 
             if (order != null)
             {
-                // Xóa các OrderDetail trước
-                _context.OrderDetails.RemoveRange(order.OrderDetails);
-
-                // Sau đó mới xóa Order
                 _context.Orders.Remove(order);
+                _context.SaveChanges();
+            }
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            var existingOrder = _context.Orders.FirstOrDefault(o => o.OrderID == order.OrderID);
+            if (existingOrder != null)
+            {
+                existingOrder.CustomerID = order.CustomerID;
+                existingOrder.EmployeeID = order.EmployeeID;
+                existingOrder.OrderDate = order.OrderDate;
 
                 _context.SaveChanges();
             }

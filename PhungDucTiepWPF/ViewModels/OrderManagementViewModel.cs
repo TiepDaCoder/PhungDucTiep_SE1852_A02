@@ -8,6 +8,7 @@ using PhungDucTiepWPF.Commands;
 using PhungDucTiepWPF.Views;
 using Services.Implementation;
 using Services.Interface;
+using Utils;
 
 namespace PhungDucTiepWPF.ViewModels
 {
@@ -80,6 +81,7 @@ namespace PhungDucTiepWPF.ViewModels
                 var vm = dialog.DataContext as OrderDialogViewModel;
                 var newOrder = vm.Order;
 
+                newOrder.OrderID = IDGenerate.OrderIDGenerator(Orders.ToList());
                 _orderService.AddOrder(newOrder);
 
                 foreach (var detail in vm.OrderDetailResults)
@@ -110,26 +112,28 @@ namespace PhungDucTiepWPF.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
         private void EditOrder()
         {
             if (SelectedOrder == null) return;
 
-            var dialog = new OrderDialog(SelectedOrder); // constructor mới
+            var dialog = new OrderDialog(SelectedOrder);
             if (dialog.ShowDialog() == true)
             {
                 var vm = dialog.DataContext as OrderDialogViewModel;
                 var updatedOrder = vm.Order;
 
-                // Cập nhật order
-                _orderService.DeleteOrder(SelectedOrder.OrderID); // xoá cũ
-                _orderService.AddOrder(updatedOrder);             // thêm mới
+                _orderService.UpdateOrder(updatedOrder);
+                _orderService.DeleteOrderDetailsByOrderId(updatedOrder.OrderID);
 
+                // Thêm lại chi tiết mới
                 foreach (var detail in vm.OrderDetailResults)
                 {
                     detail.OrderID = updatedOrder.OrderID;
                     _orderService.AddOrderDetail(detail);
                 }
 
+                // Cập nhật lại danh sách hiển thị
                 Orders[Orders.IndexOf(SelectedOrder)] = updatedOrder;
                 SelectedOrder = updatedOrder;
 

@@ -35,5 +35,20 @@ namespace DataAccessLayer
             _context.OrderDetails.RemoveRange(details);
             _context.SaveChanges();
         }
+
+        public void UpdateOrderDetail(OrderDetail detail)
+        {
+            var existingDetail = _context.OrderDetails
+                .FirstOrDefault(d => d.OrderID == detail.OrderID && d.ProductID == detail.ProductID);
+
+            if (existingDetail != null)
+            {
+                existingDetail.UnitPrice = detail.UnitPrice;
+                existingDetail.Quantity = detail.Quantity;
+                existingDetail.Discount = detail.Discount;
+
+                _context.SaveChanges();
+            }
+        }
     }
 }

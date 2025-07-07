@@ -9,7 +9,8 @@ namespace Services.Interface
         List<Order> SearchOrders(int? customerId, int? employeeId);
         void AddOrder(Order order);
         void DeleteOrder(int orderId);
-
+        void UpdateOrder(Order order);
+        void UpdateOrderDetail(OrderDetail detail);
         List<OrderDetail> GetAllDetails();
         List<OrderDetail> GetDetailsByOrderId(int orderId);
         void AddOrderDetail(OrderDetail detail);

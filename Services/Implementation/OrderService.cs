@@ -34,6 +34,12 @@ namespace Services.Implementation
             _orderRepository.Delete(orderId);
         }
 
+        public void UpdateOrder(Order order) =>
+            _orderRepository.Update(order);
+
+        public void UpdateOrderDetail(OrderDetail detail) =>
+            _orderDetailRepository.Update(detail);
+
         public List<OrderDetail> GetAllDetails() =>
             _orderDetailRepository.GetAll();
 
