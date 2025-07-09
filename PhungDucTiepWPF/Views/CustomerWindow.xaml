@@ -1,7 +1,7 @@
 ﻿<Window x:Class="PhungDucTiepWPF.Views.CustomerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Customer Dashboard" Height="350" Width="500"
+        Title="Customer Window" Height="350" Width="500"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="20">
         <Grid.RowDefinitions>

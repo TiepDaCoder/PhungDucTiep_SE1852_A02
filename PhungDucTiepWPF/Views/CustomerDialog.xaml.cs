@@ -23,11 +23,5 @@ namespace PhungDucTiepWPF.Views
 
             DataContext = vm;
         }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
-            Close();
-        }
     }
 }

@@ -43,8 +43,8 @@
         </Grid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="0,20,0,0">
-            <Button Content="Save" Width="80" Margin="5" IsDefault="True" Click="Save_Click"/>
-            <Button Content="Cancel" Width="80" Margin="5" IsCancel="True"/>
+            <Button Content="Save" Width="80" Margin="5" IsDefault="True" Command="{Binding SaveCommand}"/>
+            <Button Content="Cancel" Width="80" Margin="5" IsCancel="True" Command="{Binding CancelCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
