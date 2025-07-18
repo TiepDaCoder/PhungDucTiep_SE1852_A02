@@ -58,6 +58,13 @@ namespace PhungDucTiepWPF.ViewModels
         public LoginViewModel()
         {
             SelectedRole = "Employee Login";
+
+            //Login nhanh cho nhân viên
+            //UserName = "Nancy";
+            //Password = "123";
+
+            //Login nhanh cho khách hàng
+            //Phone = "030-0074321";
             LoginCommand = new RelayCommand(ExecuteLogin);
         }
 

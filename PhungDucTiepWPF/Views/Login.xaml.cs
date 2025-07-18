@@ -17,6 +17,9 @@ namespace PhungDucTiepWPF.Views
             cbLoginMode.SelectionChanged += cbLoginMode_SelectionChanged;
             txtPassword.PasswordChanged += txtPasswordBox_PasswordChanged;
 
+            //Gán mật khẩu nhanh cho nhân viên Nancy
+            //txtPassword.Password = _viewModel.Password;
+
             _viewModel.RequestOpenCustomer += customer =>
             {
                 var win = new CustomerWindow(customer);

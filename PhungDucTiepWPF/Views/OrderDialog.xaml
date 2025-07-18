@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Order Dialog" Height="500" Width="450"
         WindowStartupLocation="CenterOwner"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" Background="#f97316">
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -42,7 +42,7 @@
 
             <TextBlock Text="Products:" Grid.Row="3" Grid.Column="0" Margin="0,5" VerticalAlignment="Top"/>
             <DataGrid Grid.Row="3" Grid.Column="1" Margin="5" Height="150"
-          ItemsSource="{Binding OrderDetails}" AutoGenerateColumns="False" CanUserAddRows="True">
+          ItemsSource="{Binding OrderDetails}" AutoGenerateColumns="False" CanUserAddRows="True" Background="AliceBlue">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Product">
                         <DataGridTemplateColumn.CellTemplate>
